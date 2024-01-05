@@ -26,14 +26,18 @@ const Logo = () => {
       }}>
         
         <div style={{
-          color: isActive? '#FEFDFF' : '#4E2565',
-          transition: 'color 0.3s',
           fontSize: 30,
           fontFamily: 'Inria Sans',
           fontWeight: '700',
           wordWrap: 'break-word',
-
-        }}>buddymap</div>
+        }}>
+          <a style={{
+            textDecoration: 'none',
+            color: isActive ? '#FEFDFF' : '#4E2565',
+            transition: 'color 0.3s',
+          }}
+          href='/home'>buddymap</a>
+        </div>
       </h1>
     </div>
   );
@@ -66,8 +70,7 @@ const Right = () => {
           position: 'fixed',
           top: 31,
           left: 650,
-        }}
-      >
+        }}>
         <div
           style={{
             color: isActiveExplore ? '#FEFDFF' : '#5A307C',
@@ -76,9 +79,14 @@ const Right = () => {
             fontWeight: '700',
             wordWrap: 'break-word',
             transition: 'color .3s',
-          }}
-        >
-          explore
+          }}>
+          <a
+            style={{
+              textDecoration: 'none',
+              color: isActiveExplore ? '#FEFDFF' : '#5A307C',
+              transition: 'background .3s',
+            }}
+            href='/explore'> explore </a>
         </div>
       </div>
       <div
@@ -109,13 +117,21 @@ const Right = () => {
             wordWrap: 'break-word',
           }}
         >
-          plan
+          <a
+            style={{
+              textDecoration: 'none',
+              color: isActivePlan ? '#FEFDFF' : '#5A307C',
+              transition: 'background .3s',
+            }}
+            href='/plan'
+          >
+            plan
+          </a>
         </div>
       </div>
     </div>
   );
 };
-
 
 
 function Navbar() {
