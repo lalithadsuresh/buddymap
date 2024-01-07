@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
 
@@ -80,13 +81,13 @@ const Right = () => {
             wordWrap: 'break-word',
             transition: 'color .3s',
           }}>
-          <a
+          <Link
             style={{
               textDecoration: 'none',
               color: isActiveExplore ? '#FEFDFF' : '#5A307C',
               transition: 'background .3s',
             }}
-            href='/explore'> explore </a>
+            to ='/explore'> explore </Link>
         </div>
       </div>
       <div
@@ -117,16 +118,16 @@ const Right = () => {
             wordWrap: 'break-word',
           }}
         >
-          <a
+          <Link
             style={{
               textDecoration: 'none',
               color: isActivePlan ? '#FEFDFF' : '#5A307C',
               transition: 'background .3s',
             }}
-            href='/plan'
+            to='/plan'
           >
             plan
-          </a>
+          </Link>
         </div>
       </div>
     </div>
