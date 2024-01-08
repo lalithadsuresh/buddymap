@@ -17,6 +17,7 @@ function App() {
 
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: apiKey,
+    libraries: ['places']  
   });
 
   useEffect(() => {

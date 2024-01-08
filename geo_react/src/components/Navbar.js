@@ -32,12 +32,12 @@ const Logo = () => {
           fontWeight: '700',
           wordWrap: 'break-word',
         }}>
-          <a style={{
+          <Link style={{
             textDecoration: 'none',
             color: isActive ? '#FEFDFF' : '#4E2565',
             transition: 'color 0.3s',
           }}
-          href='/home'>buddymap</a>
+          to='/home'>buddymap</Link>
         </div>
       </h1>
     </div>

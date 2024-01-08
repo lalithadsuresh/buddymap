@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Slider } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
+import {Autocomplete } from '@react-google-maps/api';
 
 const MyForm = () => {
   const [formData, setFormData] = useState({
-    City: '',
-    State: '',
+    Address: '',
     Slider1: 0,
     Slider2: 0,
     Slider3: 0,
