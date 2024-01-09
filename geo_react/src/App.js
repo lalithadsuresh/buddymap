@@ -13,6 +13,7 @@ const center = { lat: 48.8584, lng: 2.2945 };
 
 function App() {
 
+
   const apiKey = 'AIzaSyBItk6fyyFDDc_VGHbJuco5T9CJK-YgA_0';
 
   const { isLoaded, loadError } = useJsApiLoader({

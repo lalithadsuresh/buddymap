@@ -176,11 +176,11 @@ export default function Plan() {
       <h1 style={{ position: 'relative', left: '40px', fontFamily: 'Inria Sans' }}>
         weekend plans survey
       </h1>
-      <l1 style={{ position: 'relative', left: '40px', fontFamily: 'Inria Sans' }}>
+      <li style={{ position: 'relative', left: '40px', fontFamily: 'Inria Sans' }}>
         Please fill out this survey for your weekend plans to generate!
         <br />
         Remember to answer each question as accurately as possible.
-      </l1>
+      </li>
       <br />
       <br />
       <MyForm />
