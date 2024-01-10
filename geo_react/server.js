@@ -10,9 +10,9 @@ app.use(cors({
 }));
 
 app.get('/api/places', async (req, res) => {
-  const { location, radius, key } = req.query;
+  const { location, radius, key, type } = req.query;
 
-  const placesApiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&type=park&key=${key}`;
+  const placesApiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&type=${type}&key=${key}`;
 
   try {
     const response = await fetch(placesApiUrl);
