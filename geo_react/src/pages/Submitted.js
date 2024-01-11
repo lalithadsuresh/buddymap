@@ -61,6 +61,7 @@ const Submitted = () => {
     address
   )}&key=${ad}`;
 
+
   useEffect(() => {
     fetch(geocodingApiUrl)
       .then((response) => response.json())
@@ -76,22 +77,6 @@ const Submitted = () => {
         console.error('Error fetching data from Geocoding API:', error);
       });
   }, [geocodingApiUrl, ad]);
-
-  useEffect(() => {
-    if (center.lat !== 0 && center.lng !== 0) {
-      setChosenPlace(LazyorActive());
-      const placesApiUrl = `http://localhost:3001/api/places?location=${center.lat},${center.lng}&radius=2000&type=${chosenPlace.text}&key=${ad}`;
-
-      fetch(placesApiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          setPlaces(data.results || []);
-        })
-        .catch((error) => {
-          console.error('Error fetching data from Places API:', error);
-        });
-    }
-  }, [center, ad]);
 
   const LazyorActive = () => {
 
@@ -143,17 +128,44 @@ const Submitted = () => {
       return {text: text, chosenPlace: chosenPlace};
     }
 
-    return { text: '', chosenPlace: '' };
+    return { text: '', chosenPlace: chosenPlace };
   };
- 
+
+  const updateChosenPlace = () => {
+    setChosenPlace((prevChosenPlace) => {
+      const newChosenPlace = LazyorActive();
+      const placesApiUrl = `http://localhost:3001/api/places?location=${center.lat},${center.lng}&radius=2000&type=${newChosenPlace.text}&key=${ad}`;
+  
+      fetch(placesApiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          setPlaces(data.results.slice(0, 3) || []);
+        })
+        .catch((error) => {
+          console.error('Error fetching data from Places API:', error);
+        });
+  
+      return newChosenPlace;
+    });
+  };
+
+  
+  
+
+  useEffect(() => {
+    if (center.lat !== 0 && center.lng !== 0) {
+      updateChosenPlace();
+    }
+  }, [center, ad, TiredPoints, EnergyPoints, chosenPlace]);
+
   
   return (
     <div style={{ position: 'absolute', left: 100, top: 150, height: '50%', width: '50%' }}>
       <GoogleMap center={center} zoom={15} mapContainerStyle={{ width: '100%', height: '100%' }}>
         {places
-            .map((place, index) => (
+            .filter((place) => chosenPlace.chosenPlace.includes(place.types))
+            .map((place) => (
             <Marker
-                key={index}
                 position={{ lat: place.geometry.location.lat, lng: place.geometry.location.lng }}
             />
             ))}
