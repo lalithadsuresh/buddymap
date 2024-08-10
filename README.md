@@ -2,7 +2,7 @@
 
 # Personalized Weekend Plans Recommendations
 
-BuddyMap is a web application that provides personalized weekend plan recommendations. It leverages React for the frontend, Express for the backend, and the Google Places API to fetch nearby places based on user preferences. (STILL WORK IN PROGRESS)
+BuddyMap is a web application that provides personalized weekend plan recommendations (STILL WORK IN PROGRESS)
 
 ## Table of Contents
 
